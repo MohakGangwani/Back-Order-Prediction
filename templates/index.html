@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Back Order Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+  <center>
+ <div class="login">
+	<h1>Back Order Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="float" name="Current inventory level" placeholder="Current inventory level" required="required" />
+      <input type="float" name="Product Transit Time" placeholder="Product Transit Time" required="required" />
+      <input type="float" name="Transit Product Amount" placeholder="Transit Product Amount" required="required" />
+      <input type="float" name="Forecast sales 3 months" placeholder="Forecast sales 3 months" required="required" /><br>
+      <input type="float" name="Sales prior 1 month" placeholder="Sales prior 1 month" required="required" />
+      <input type="float" name="amount to stock" placeholder="amount to stock" required="required" />
+      <input type="float" name="Parts overdue from source" placeholder="Parts overdue from source" required="required" />
+      <input type="float" name="Source performance prior 6 month" placeholder="Source performance prior 6 month" required="required" />
+      <input type="float" name="Amount of stock orders overdue" placeholder="Amount of stock orders overdue" required="required" /><br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+</center>
+</body>
+</html>
