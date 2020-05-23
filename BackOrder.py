@@ -88,4 +88,5 @@ RCF = RandomForestClassifier(n_estimators=10, criterion='gini', min_samples_spli
 #Random state to get a consistent score
 RCF.fit(Normalised_df, df_new["Product Backordered"])
 
-#Saving Model to disk pickle.dump(RCF,open('RCF.pkl','wb'))
+#Saving Model to disk
+pickle.dump(RCF,open('RCF.pkl','wb'))
